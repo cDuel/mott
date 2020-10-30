@@ -131,3 +131,27 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+let options = {
+    root:null,
+    rootMargin: '0px',
+    threshold: 0.25
+}
+
+
+let callback = (entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting 
+            && entry.target.className == 'observed'){
+                let vidUrl = entry.target.getAttribute('data-src')
+                if(vidUrl){
+                    entry.target.src = vidUrl
+                    observer.unobserver(entry.target)
+                }
+            }
+    })
+}
+
+let observer = new IntersectionObserver(callback, options)
+observer.observe(document.querySelector('#smallVid'))
+observer.observe(document.querySelector('#big'))
