@@ -146,7 +146,7 @@ let callback = (entries, observer) => {
                 let vidUrl = entry.target.getAttribute('data-src')
                 if(vidUrl){
                     entry.target.src = vidUrl
-                    observer.unobserver(entry.target)
+                    observer.unobserve(entry.target)
                 }
             }
     })
