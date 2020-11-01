@@ -147,6 +147,7 @@ let callback = (entries, observer) => {
                 if(vidUrl){
                     entry.target.src = vidUrl
                     observer.unobserve(entry.target)
+                  
                 }
             }
     })
@@ -155,3 +156,4 @@ let callback = (entries, observer) => {
 let observer = new IntersectionObserver(callback, options)
 observer.observe(document.querySelector('#smallVid'))
 observer.observe(document.querySelector('#big'))
+observer.observe(document.querySelector('#myImg'))
