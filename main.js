@@ -147,7 +147,7 @@ let callback = (entries, observer) => {
                 if(vidUrl){
                     entry.target.src = vidUrl
                     observer.unobserve(entry.target)
-                  
+                    console.log(entry.target)
                 }
             }
     })
@@ -157,3 +157,23 @@ let observer = new IntersectionObserver(callback, options)
 observer.observe(document.querySelector('#smallVid'))
 observer.observe(document.querySelector('#big'))
 observer.observe(document.querySelector('#myImg'))
+
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-background"));
+  
+    if ("IntersectionObserver" in window) {
+      let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            lazyBackgroundObserver.unobserve(entry.target);
+            console.log(entry.target)
+          }
+        });
+      });
+  
+      lazyBackgrounds.forEach(function(lazyBackground) {
+        lazyBackgroundObserver.observe(lazyBackground);
+      });
+    }
+  });

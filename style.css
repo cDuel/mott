@@ -153,7 +153,9 @@ nav img:hover{
     font-weight: bold;
 }
 
-
+.lazy-background{
+    background: url(hero.jpg);
+  }
 
 main{
     width: 100%;
@@ -164,6 +166,12 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+main.visible{
+    background: url(/images/IMG-8994.JPG) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 #homeBox{
@@ -240,9 +248,14 @@ main{
 #neighborhood{
     width: 100%;
     padding: 50px 0;
+    /* background: url(/images/_MG_6064-min.jpg) no-repeat;
+    background-size: cover; */
+    text-align: center;
+}
+
+#neighborhood.visible{
     background: url(/images/_MG_6064-min.jpg) no-repeat;
     background-size: cover;
-    text-align: center;
 }
 
 #neighborhood h2{
@@ -298,7 +311,7 @@ main{
     
 }
 
-#incentives .building{
+#incentives .building.visible{
     background: url(/images/stairs-min.jpg) no-repeat;
     background-size: cover;
 }
