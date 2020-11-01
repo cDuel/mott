@@ -3,9 +3,7 @@
     src: url(/fonts/Montserrat-SemiBold.ttf);
   }
   
-  div {
-    font-family: myFirstFont;
-  }
+  
 
 * {
     box-sizing: border-box;
