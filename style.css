@@ -700,15 +700,19 @@ footer a {
       }
 
       #inquire{
-          background: url(/images/mottHaven.png)
-      }
+          background: url(/images/mottHaven.png) no-repeat;
+            background-size: cover;
+        }
        #neighborhood{
-          background:  url(/images/bodega.png)
-      }
+          background:  url(/images/bodega.png) no-repeat;
+            background-size: cover;
+        }
        main {
-        background:  url(/images/mottHaven.png)
-      }
+        background:  url(/images/mottHaven.png) no-repeat;
+            background-size: cover;
+    }
       #incentives .building{
-          background: url(/images/stairs.png);
-      }
+          background: url(/images/stairs.png) no-repeat;
+            background-size: cover;
+        }
 }
