@@ -714,5 +714,6 @@ footer a {
       #incentives .building{
           background: url(/images/stairs.png) no-repeat;
             background-size: cover;
+            background-position: bottom;
         }
 }
