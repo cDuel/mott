@@ -6,6 +6,8 @@
     <meta name="description" content="Mott Haven real estate, properties, programs, and information about the Mott Haven neighborhood.">
     <title>Mott Haven | Bronx NY</title>
     <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="preload" href="style-min.css" as="style">
+    <link rel="preload" href="main-min.js" as="script">
     <link rel="stylesheet" href="style-min.css">
   </head>
   <body>
@@ -170,6 +172,53 @@
   </div>
 
 </div>
-    <script src="main-min.js"></script>
+<script>
+  let options = {
+    root:null,
+    rootMargin: '0px',
+    threshold: 0.25
+}
+
+
+let callback = (entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting 
+            && entry.target.className == 'observed'){
+                let vidUrl = entry.target.getAttribute('data-src')
+                if(vidUrl){
+                    entry.target.src = vidUrl
+                    observer.unobserve(entry.target)
+                    console.log(entry.target)
+                }
+            }
+    })
+}
+
+let observer = new IntersectionObserver(callback, options)
+observer.observe(document.querySelector('#smallVid'))
+observer.observe(document.querySelector('#big'))
+observer.observe(document.querySelector('#myImg'))
+
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-background"));
+  
+    if ("IntersectionObserver" in window) {
+      let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            lazyBackgroundObserver.unobserve(entry.target);
+            console.log(entry.target)
+          }
+        });
+      });
+  
+      lazyBackgrounds.forEach(function(lazyBackground) {
+        lazyBackgroundObserver.observe(lazyBackground);
+      });
+    }
+  });
+</script>
+    <script defer src="main-min.js"></script>
   </body>
 </html>

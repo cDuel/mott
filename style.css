@@ -314,6 +314,7 @@ main.visible{
 #incentives .building.visible{
     background: url(/images/stairs-min.jpg) no-repeat;
     background-size: cover;
+    background-position: bottom;
 }
 
 #incentives .theChart {
